@@ -15,6 +15,9 @@ map('n', '<leader>bb', '<cmd>tabedit<cr>', options)
 map('n', '<leader>c', '<cmd>bunload<cr>', options)
 map('n', '<leader>t', '<cmd>term<cr>', options)
 
+map('n', '<leader>e', '<cmd>NERDTreeToggle<cr>', options)
+map('n', '<leader>o', '<cmd>NERDTreeFocus<cr>', options)
+
 map('n', '<S-h>', 'gT', options)
 map('n', '<S-l>', 'gt', options)
 map('n', '<C-h>', '<C-w>h', options)
@@ -34,6 +37,10 @@ map("v", "<", "<gv", options)
 map("v", ">", ">gv", options)
 
 map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map("t", "<C-h>", "<c-\\><c-n><c-h>", { desc = "Enter Normal Mode" })
+map("t", "<C-j>", "<c-\\><c-n><c-j>", { desc = "Enter Normal Mode" })
+map("t", "<C-k>", "<c-\\><c-n><c-k>", { desc = "Enter Normal Mode" })
+map("t", "<C-l>", "<c-\\><c-n><c-l>", { desc = "Enter Normal Mode" })
 map('i', '<Tab>', '<Esc>', options)
 
 map('i', '<C-h>', '<Left>', options)

@@ -13,32 +13,25 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  return
+    return
 end
 
 -- Have packer use a popup window
 packer.init({
     display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end
+        open_fn = function()
+            return require('packer.util').float({ border = 'single' })
+        end
     }
-  }
+}
 )
 
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
-        use {
-            'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { {'nvim-lua/plenary.nvim'} }
         -- setup
     }
@@ -50,36 +43,40 @@ return packer.startup(function(use)
         end,
     }
 
-use 'echasnovski/mini.pairs'
-use 'echasnovski/mini.comment'
-use "tpope/vim-surround"
+    use 'echasnovski/mini.pairs'
+    use 'echasnovski/mini.comment'
+    use "tpope/vim-surround"
+    use 'preservim/nerdtree'
+    use 'preservim/nerdtree'
+
+    use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+    use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
+    use 'hrsh7th/nvim-cmp' -- Completion
+    use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
+
+    -- LSP
+    use 'onsails/lspkind-nvim' -- vscode-like pictograms
+    use 'neovim/nvim-lspconfig' -- LSP
+    use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+    use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'princejoogie/tailwind-highlight.nvim'
+    use 'glepnir/lspsaga.nvim' -- LSP UIs
+    use 'L3MON4D3/LuaSnip'
+
 
     use {
-        "hrsh7th/nvim-cmp",
-        requires = {
-            "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
-            'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
-            'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-            'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
-        }
+        "williamboman/mason.nvim",
+        run = ":MasonUpdate" -- :MasonUpdate updates registry contents
     }
-    use {
-        'tzachar/cmp-tabnine',
-        run = './install.sh',
-        requires = 'hrsh7th/nvim-cmp'
-    }
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'mfussenegger/nvim-dap'
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'ggandor/leap.nvim'
 
-    use 'neovim/nvim-lspconfig'
-
-    use {
-    "williamboman/mason.nvim",
-    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-}
-use 'williamboman/mason-lspconfig.nvim'
-use 'mfussenegger/nvim-dap'
-use 'jose-elias-alvarez/null-ls.nvim'
-
-use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
 
     if packer_bootstrap then
