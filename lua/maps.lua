@@ -1,0 +1,81 @@
+local utils = require("utils")
+
+local map = vim.api.nvim_set_keymap
+
+-- map the leader key
+vim.g.mapleader = ' '  -- 'vim.g' sets global variables
+vim.g.maplocalleader = ' '   -- 'vim.g' sets global variables
+map("", "<Space>", "<Nop>", {}) -- disable space because leader
+
+options = { noremap = true }
+
+map('n', '<leader>w', '<cmd>w<cr>', options)
+map('n', '<leader>q', '<cmd>q<cr>', options)
+map('n', '<leader>bb', '<cmd>tabedit<cr>', options)
+map('n', '<leader>c', '<cmd>bunload<cr>', options)
+map('n', '<leader>t', '<cmd>term<cr>', options)
+
+map('n', '<S-h>', 'gT', options)
+map('n', '<S-l>', 'gt', options)
+map('n', '<C-h>', '<C-w>h', options)
+map('n', '<C-j>', '<C-w>j', options)
+map('n', '<C-k>', '<C-w>k', options)
+map('n', '<C-l>', '<C-w>l', options)
+
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+map("v", "<", "<gv", options)
+map("v", ">", ">gv", options)
+
+map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map('i', '<Tab>', '<Esc>', options)
+
+map('i', '<C-h>', '<Left>', options)
+map('i', '<C-j>', '<Down>', options)
+map('i', '<C-k>', '<Up>', options)
+map('i', '<C-l>', '<Right>', options)
+
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+
+
+if utils.isModuleAvailable("telescope.builtin") then
+	-- Telescope
+	local builtin = require('telescope.builtin')
+	vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+	vim.keymap.set('n', '<leader>fc', builtin.colorscheme, {})
+	vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})
+	vim.keymap.set('n', '<leader>fW', builtin.grep_string, {})
+	vim.keymap.set('n', '<leader>fk', builtin.keymaps, {})
+
+	-- Telescope LSP
+	vim.keymap.set('n', '<leader>lR', builtin.lsp_references, {})
+	vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, {})
+	vim.keymap.set('n', '<leader>lD', builtin.diagnostics, {})
+	vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {})
+
+	-- vim.keymap.set('n', 'gd', builtin.lsp_definitions, {})
+
+	-- Telescope git
+	vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
+	vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+end
+
+if utils.isModuleAvailable("packer") then
+	vim.keymap.set('n', '<leader>ps', ":PackerSync<CR>", {})
+	vim.keymap.set('n', '<leader>pc', ":PackerClean<CR>", {})
+	vim.keymap.set('n', '<leader>pi', ":PackerInstall<CR>", {})
+	vim.keymap.set('n', '<leader>pu', ":PackerUpdate<CR>", {})
+end
+if utils.isModuleAvailable("mason") then
+	vim.keymap.set('n', '<leader>pm', ":Mason<CR>", {})
+end

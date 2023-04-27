@@ -1,0 +1,5 @@
+require("options")
+require("maps")
+require("autocommands")
+require("plugins")
+require("config_plugins")
