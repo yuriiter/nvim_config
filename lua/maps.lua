@@ -12,6 +12,7 @@ options = { noremap = true }
 map('n', '<leader>w', '<cmd>w<cr>', options)
 map('n', '<leader>q', '<cmd>q<cr>', options)
 map('n', '<leader>bb', '<cmd>tabedit<cr>', options)
+map("n", "<leader>be",  "<cmd>execute '!eslint --fix %' | e<cr>", options)
 map('n', '<leader>c', '<cmd>bunload<cr>', options)
 map('n', '<leader>t', '<cmd>term<cr>', options)
 
@@ -55,6 +56,8 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 
 
+
+
 if utils.isModuleAvailable("telescope.builtin") then
 	-- Telescope
 	local builtin = require('telescope.builtin')
@@ -67,6 +70,8 @@ if utils.isModuleAvailable("telescope.builtin") then
 	-- Telescope LSP
 	vim.keymap.set('n', '<leader>lR', builtin.lsp_references, {})
 	vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, {})
+	vim.keymap.set('n', 'gd', builtin.lsp_definitions, {})
+	vim.keymap.set('n', 'gr', builtin.lsp_references, {})
 	vim.keymap.set('n', '<leader>lD', builtin.diagnostics, {})
 	vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {})
 

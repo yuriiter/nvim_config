@@ -55,6 +55,7 @@ return packer.startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
 
+    use 'lewis6991/gitsigns.nvim'
     -- LSP
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
     use 'neovim/nvim-lspconfig' -- LSP
@@ -65,6 +66,9 @@ return packer.startup(function(use)
     use 'princejoogie/tailwind-highlight.nvim'
     use 'glepnir/lspsaga.nvim' -- LSP UIs
     use 'L3MON4D3/LuaSnip'
+    use 'onsails/lspkind.nvim'
+    use 'APZelos/blamer.nvim'
+    use 'norcalli/nvim-colorizer.lua'
 
 
     use {
@@ -73,7 +77,6 @@ return packer.startup(function(use)
     }
     use 'williamboman/mason-lspconfig.nvim'
     use 'mfussenegger/nvim-dap'
-    use 'jose-elias-alvarez/null-ls.nvim'
     use 'ggandor/leap.nvim'
 
     use { "catppuccin/nvim", as = "catppuccin" }

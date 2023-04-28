@@ -13,6 +13,8 @@ vim.g.netrw_browse_split = 4
 vim.g.netrw_altv = 1
 vim.g.netrw_winsize = 25
 
+vim.g.blamer_enabled = 1
+
 local opt = vim.opt
 
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
