@@ -17,6 +17,7 @@ vim.g.blamer_enabled = 1
 
 local opt = vim.opt
 
+opt.swapfile = false-- Sync with system clipboard
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3 -- Hide * markup for bold and italic

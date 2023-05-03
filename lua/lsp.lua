@@ -17,6 +17,18 @@ end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+
+nvim_lsp.eslint.setup({
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
+
+
 local on_attach = function(client, bufnr)
 
     if utils.isModuleAvailable('nvim-lsp-ts-utils') then
@@ -97,8 +109,10 @@ local on_attach = function(client, bufnr)
     -- Mappings.
     local opts = { noremap = true, silent = true }
 
+-- Remap Ctrl+i to signature help in insert mode
+vim.api.nvim_buf_set_keymap(0, 'i', '<C-i>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('i', '<C-i>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -166,11 +180,7 @@ nvim_lsp.tsserver.setup {
 vim.cmd([[
 autocmd FileType * inoremap <buffer><expr> <Tab> "\<Esc>"
 ]])
-nvim_lsp.eslint.setup {
-    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-    cmd = { "eslint", "--stdio" },
-    capabilities = capabilities
-}
+
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

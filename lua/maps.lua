@@ -42,7 +42,9 @@ map("t", "<C-h>", "<c-\\><c-n><c-h>", { desc = "Enter Normal Mode" })
 map("t", "<C-j>", "<c-\\><c-n><c-j>", { desc = "Enter Normal Mode" })
 map("t", "<C-k>", "<c-\\><c-n><c-k>", { desc = "Enter Normal Mode" })
 map("t", "<C-l>", "<c-\\><c-n><c-l>", { desc = "Enter Normal Mode" })
-map('i', '<Tab>', '<Esc>', options)
+map('i', '<Tab>', '<Esc>', { noremap = false})
+map('i', '<C-i>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { silent = true })
+
 
 map('i', '<C-h>', '<Left>', options)
 map('i', '<C-j>', '<Down>', options)

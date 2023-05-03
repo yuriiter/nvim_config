@@ -88,6 +88,8 @@ return packer.startup(function(use)
 
     use { "catppuccin/nvim", as = "catppuccin" }
 
+    use 'ray-x/lsp_signature.nvim'
+
 
     if packer_bootstrap then
         require('packer').sync()

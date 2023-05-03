@@ -244,3 +244,11 @@ if utils.isModuleAvailable("cmp") and utils.isModuleAvailable("luasnip") then
     })
 end
 
+if utils.isModuleAvailable("lsp_signature") then
+    require "lsp_signature".setup({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+            border = "rounded"
+        }
+    })
+end
