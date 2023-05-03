@@ -42,6 +42,7 @@ if utils.isModuleAvailable("nvim-treesitter") then
     }
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
     parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+    -- parser_config.
 end
 
 if utils.isModuleAvailable("mini.pairs") then
@@ -184,23 +185,25 @@ if utils.isModuleAvailable("cmp") and utils.isModuleAvailable("luasnip") then
 
     local select_opts = {behavior = cmp.SelectBehavior.Select}
 
+    local select_opts = { behavior = cmp.SelectBehavior.Select }
+
     cmp.setup({
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body)
-            end
+                require('luasnip').lsp_expand(args.body)
+            end,
         },
         sources = {
-            {name = 'path'},
-            {name = 'nvim_lsp', keyword_length = 1},
-            {name = 'buffer', keyword_length = 3},
-            {name = 'luasnip', keyword_length = 2},
+            { name = 'path' },
+            { name = 'nvim_lsp', keyword_length = 1 },
+            { name = 'buffer', keyword_length = 3 },
+            { name = 'luasnip', keyword_length = 2, priority = 100 }, -- Set higher priority for Luasnip
         },
         window = {
-            documentation = cmp.config.window.bordered()
+            documentation = cmp.config.window.bordered(),
         },
         formatting = {
-            fields = {'menu', 'abbr', 'kind'},
+            fields = { 'menu', 'abbr', 'kind' },
             format = function(entry, item)
                 local menu_icon = {
                     nvim_lsp = 'λ',
@@ -208,7 +211,6 @@ if utils.isModuleAvailable("cmp") and utils.isModuleAvailable("luasnip") then
                     buffer = 'Ω',
                     path = '🖫',
                 }
-
                 item.menu = menu_icon[entry.source.name]
                 return item
             end,
@@ -216,30 +218,25 @@ if utils.isModuleAvailable("cmp") and utils.isModuleAvailable("luasnip") then
         mapping = {
             ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
             ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
-
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
             ['<C-e>'] = cmp.mapping.abort(),
-            ['<C-y>'] = cmp.mapping.confirm({select = true}),
-            ['<CR>'] = cmp.mapping.confirm({select = false}),
-
+            ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+            ['<CR>'] = cmp.mapping.confirm({ select = false }),
             ['<C-f>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(1) then
                     luasnip.jump(1)
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
-
+            end, { 'i', 's' }),
             ['<C-b>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(-1) then
                     luasnip.jump(-1)
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
-
+            end, { 'i', 's' }),
         },
     })
 end

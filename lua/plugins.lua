@@ -31,6 +31,11 @@ packer.init({
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use {
+        "williamboman/mason.nvim",
+        run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+    }
+    use 'williamboman/mason-lspconfig.nvim'
+    use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { {'nvim-lua/plenary.nvim'} }
         -- setup
@@ -52,7 +57,14 @@ return packer.startup(function(use)
 
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-    use 'hrsh7th/nvim-cmp' -- Completion
+    use 'hrsh7th/nvim-cmp'
+    use 'saadparwaiz1/cmp_luasnip'
+    use "rafamadriz/friendly-snippets"
+    use {
+        'L3MON4D3/LuaSnip',
+        dependencies = { "rafamadriz/friendly-snippets" },
+    }
+    use 'airblade/vim-gitgutter'
 
 
     use 'windwp/nvim-autopairs'
@@ -64,21 +76,13 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig' -- LSP
     use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
     use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
     use 'princejoogie/tailwind-highlight.nvim'
     use 'glepnir/lspsaga.nvim' -- LSP UIs
-    use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind.nvim'
     use 'APZelos/blamer.nvim'
     use 'norcalli/nvim-colorizer.lua'
 
 
-    use {
-        "williamboman/mason.nvim",
-        run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-    }
-    use 'williamboman/mason-lspconfig.nvim'
     use 'mfussenegger/nvim-dap'
     use 'ggandor/leap.nvim'
 

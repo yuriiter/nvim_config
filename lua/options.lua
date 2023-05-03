@@ -15,6 +15,9 @@ vim.g.netrw_winsize = 25
 
 vim.g.blamer_enabled = 1
 
+vim.g.html_indent_script1 = "inc"
+vim.g.html_indent_style1 = "inc"
+
 local opt = vim.opt
 
 opt.swapfile = false-- Sync with system clipboard

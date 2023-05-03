@@ -99,6 +99,16 @@ _G.packer_plugins = {
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -224,6 +234,11 @@ _G.packer_plugins = {
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
   ["vim-graphql"] = {
     loaded = true,
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-graphql",
@@ -243,6 +258,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["xml.vim"] = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/xml.vim",
+    url = "https://github.com/othree/xml.vim"
   }
 }
 
