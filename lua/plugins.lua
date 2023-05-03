@@ -47,11 +47,14 @@ return packer.startup(function(use)
     use 'echasnovski/mini.comment'
     use "tpope/vim-surround"
     use 'preservim/nerdtree'
-    use 'preservim/nerdtree'
+
+    use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
     use 'hrsh7th/nvim-cmp' -- Completion
+
+
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
 
@@ -78,6 +81,10 @@ return packer.startup(function(use)
     use 'williamboman/mason-lspconfig.nvim'
     use 'mfussenegger/nvim-dap'
     use 'ggandor/leap.nvim'
+
+    use 'chemzqm/vim-jsx-improve'
+    use 'peitalin/vim-jsx-typescript'
+    use 'jparise/vim-graphql'
 
     use { "catppuccin/nvim", as = "catppuccin" }
 
