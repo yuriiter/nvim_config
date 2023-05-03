@@ -64,7 +64,6 @@ return packer.startup(function(use)
         'L3MON4D3/LuaSnip',
         dependencies = { "rafamadriz/friendly-snippets" },
     }
-    use 'airblade/vim-gitgutter'
 
 
     use 'windwp/nvim-autopairs'
@@ -88,7 +87,9 @@ return packer.startup(function(use)
 
     use 'chemzqm/vim-jsx-improve'
     use 'peitalin/vim-jsx-typescript'
+    use "MaxMEllon/vim-jsx-pretty"
     use 'jparise/vim-graphql'
+
 
     use { "catppuccin/nvim", as = "catppuccin" }
 

@@ -249,6 +249,11 @@ _G.packer_plugins = {
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-jsx-improve",
     url = "https://github.com/chemzqm/vim-jsx-improve"
   },
+  ["vim-jsx-pretty"] = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
+    url = "https://github.com/MaxMEllon/vim-jsx-pretty"
+  },
   ["vim-jsx-typescript"] = {
     loaded = true,
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-jsx-typescript",
@@ -258,11 +263,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
-  },
-  ["xml.vim"] = {
-    loaded = true,
-    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/xml.vim",
-    url = "https://github.com/othree/xml.vim"
   }
 }
 

@@ -16,8 +16,26 @@ map("n", "<leader>be",  "<cmd>execute '!eslint --fix %' | e<cr>", options)
 map('n', '<leader>c', '<cmd>bunload<cr>', options)
 map('n', '<leader>t', '<cmd>term<cr>', options)
 
-map('n', '<leader>e', '<cmd>NERDTreeToggle<cr>', options)
-map('n', '<leader>o', '<cmd>NERDTreeFocus<cr>', options)
+vim.cmd([[
+" Open NERDTree in the directory of the current file (or /home if no file is open)
+nmap <silent> <leader>o :silent! call NERDTreeFocusInCurDir()<cr>
+function! NERDTreeFocusInCurDir()
+  " If NERDTree is open in the current buffer
+
+  if (stridx(bufname('%'), 'NERD_tree_') == -1 && bufname() != "" && &buftype == "" && &filetype != "")
+    exe ":NERDTreeFind"
+endif
+endfunction
+nmap <silent> <leader>e :call NERDTreeToggleInCurDir()<cr>
+function! NERDTreeToggleInCurDir()
+  " If NERDTree is open in the current buffer
+  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+    exe ":NERDTreeClose"
+  else
+    exe ":NERDTreeFind"
+  endif
+endfunction
+]])
 
 map('n', '<S-h>', 'gT', options)
 map('n', '<S-l>', 'gt', options)

@@ -249,3 +249,7 @@ if utils.isModuleAvailable("lsp_signature") then
         }
     })
 end
+
+if utils.isModuleAvailable("vim-jsx-pretty") then
+    require "vim-jsx-pretty".setup({ })
+end
