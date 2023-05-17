@@ -18,12 +18,11 @@ vim.g.blamer_enabled = 1
 vim.g.html_indent_script1 = "inc"
 vim.g.html_indent_style1 = "inc"
 
-local opt = vim.opt
 
 opt.swapfile = false-- Sync with system clipboard
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 3 -- Hide * markup for bold and italic
+opt.conceallevel = 0 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
@@ -57,6 +56,8 @@ opt.undolevels = 10000
 opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
+opt.incsearch = true
+
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"

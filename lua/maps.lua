@@ -7,7 +7,8 @@ vim.g.mapleader = ' '  -- 'vim.g' sets global variables
 vim.g.maplocalleader = ' '   -- 'vim.g' sets global variables
 map("", "<Space>", "<Nop>", {}) -- disable space because leader
 
-options = { noremap = true }
+local options = { noremap = true }
+map('n', '<Esc>', '<cmd>noh<cr>', options)
 
 map('n', '<leader>w', '<cmd>w<cr>', options)
 map('n', '<leader>q', '<cmd>q<cr>', options)

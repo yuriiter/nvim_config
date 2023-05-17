@@ -65,6 +65,8 @@ return packer.startup(function(use)
         dependencies = { "rafamadriz/friendly-snippets" },
     }
 
+    use 'lukas-reineke/indent-blankline.nvim'
+
 
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'

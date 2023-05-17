@@ -14,6 +14,7 @@ if utils.isModuleAvailable("nvim-treesitter") then
     require'nvim-treesitter.configs'.setup {
         highlight = { enable = true },
         indent = { enable = true },
+        incremental_selection = { enable = true },
         context_commentstring = { enable = true, enable_autocmd = false },
         autotag = {
             enable = true,
@@ -40,8 +41,8 @@ if utils.isModuleAvailable("nvim-treesitter") then
         },
         auto_install = true,
     }
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+    -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    -- parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
     -- parser_config.
 end
 
@@ -250,6 +251,12 @@ if utils.isModuleAvailable("lsp_signature") then
     })
 end
 
-if utils.isModuleAvailable("vim-jsx-pretty") then
-    require "vim-jsx-pretty".setup({ })
+if utils.isModuleAvailable("indent_blankline") then
+    vim.opt.list = true
+    require "indent_blankline".setup {
+        space_char_blankline = " ",
+        show_current_context = true,
+        show_current_context_start = true,
+    }
 end
+
