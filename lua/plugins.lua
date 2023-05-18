@@ -41,6 +41,11 @@ return packer.startup(function(use)
         -- setup
     }
     use {
+ 'nvim-telescope/telescope-smart-history.nvim',
+        requires = { {'kkharji/sqlite.lua'} }
+        -- setup
+    }
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
@@ -53,7 +58,7 @@ return packer.startup(function(use)
     use "tpope/vim-surround"
     use 'preservim/nerdtree'
 
-    use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+    use 'jose-elias-alvarez/typescript.nvim'
 
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP

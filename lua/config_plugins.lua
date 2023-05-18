@@ -1,11 +1,16 @@
 local utils = require("utils")
 
 if utils.isModuleAvailable("telescope") then
+    -- require('telescope').load_extension('smart_history')
     require('telescope').setup({
         defaults = {
             layout_config = {
                 vertical = { width = 0.5 }
             },
+            history = {
+                limit = 100,
+            }
+
         },
     })
 end
@@ -256,7 +261,7 @@ if utils.isModuleAvailable("indent_blankline") then
     require "indent_blankline".setup {
         space_char_blankline = " ",
         show_current_context = true,
-        show_current_context_start = true,
     }
 end
+
 

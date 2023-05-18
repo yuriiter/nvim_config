@@ -13,9 +13,10 @@ map('n', '<Esc>', '<cmd>noh<cr>', options)
 map('n', '<leader>w', '<cmd>w<cr>', options)
 map('n', '<leader>q', '<cmd>q<cr>', options)
 map('n', '<leader>bb', '<cmd>tabedit<cr>', options)
-map("n", "<leader>be",  "<cmd>execute '!eslint --fix %' | e<cr>", options)
 map('n', '<leader>c', '<cmd>bunload<cr>', options)
 map('n', '<leader>t', '<cmd>term<cr>', options)
+map('n', '<leader>z', '<cmd>luafile $MYVIMRC<cr>', options)
+map('n', '<leader>a', 'mzgg=G`z', options)
 
 vim.cmd([[
 " Open NERDTree in the directory of the current file (or /home if no file is open)
@@ -101,6 +102,10 @@ if utils.isModuleAvailable("telescope.builtin") then
 	-- Telescope git
 	vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 	vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+
+    -- Telescop cycle through history
+	-- vim.keymap.set('i', '<C-Down>', "require('telescope.actions').cycle_history_next", {})
+	-- vim.keymap.set('i', '<C-Up>', "require('telescope.actions').cycle_history_prev", {})
 end
 
 if utils.isModuleAvailable("packer") then

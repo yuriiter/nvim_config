@@ -193,12 +193,22 @@ nvim_lsp.flow.setup {
     capabilities = capabilities
 }
 
-nvim_lsp.tsserver.setup {
-    on_attach = on_attach,
-    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-    cmd = { "typescript-language-server", "--stdio" },
-    capabilities = capabilities
-}
+if utils.isModuleAvailable("typescript") then
+    require("typescript").setup({
+        disable_commands = false, -- prevent the plugin from creating Vim commands
+        debug = false, -- enable debug logging for commands
+        go_to_source_definition = {
+            fallback = true, -- fall back to standard LSP definition on failure
+        },
+        server = { -- pass options to lspconfig's setup method
+            on_attach = on_attach,
+            filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+            cmd = { "typescript-language-server", "--stdio" },
+            capabilities = capabilities
+        },
+    })
+end
+
 
 vim.cmd([[
 autocmd FileType * inoremap <buffer><expr> <Tab> "\<Esc>"
@@ -263,12 +273,12 @@ nvim_lsp.tailwindcss.setup({
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
-    severity_sort = true,
-})
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        update_in_insert = false,
+        virtual_text = { spacing = 4, prefix = "●" },
+        severity_sort = true,
+    })
 
 -- Show line diagnostics automatically in hover window
 -- vim.o.updatetime = 250
