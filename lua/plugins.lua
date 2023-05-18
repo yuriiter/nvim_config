@@ -61,6 +61,7 @@ return packer.startup(function(use)
         end,
     }
 
+    -- use "folke/which-key.nvim"
     use 'echasnovski/mini.pairs'
     use 'echasnovski/mini.comment'
     use "tpope/vim-surround"

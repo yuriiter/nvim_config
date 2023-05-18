@@ -21,6 +21,8 @@ map('n', '<leader>x', '*``cgn', options)
 map('n', '<leader>X', '#``cgN', options)
 map('n', '<leader>z', '<cmd>luafile $MYVIMRC<cr>', options)
 map('n', '<leader>as', [[:<C-u>let @/ = '\V' . escape('<C-r><C-w>', '/')<CR>:%s/<C-r>=escape('<C-r><C-w>', '/')<CR>/]], { noremap = true,  })
+map('n', '<leader>ai', ':TypescriptAddMissingImports<CR>', options)
+map('n', '<leader>af', ':TypescriptRenameFile<CR>', options)
 
 map('x', 'p', "]pgvy", options)
 map('n', 'p', "]p", options)
