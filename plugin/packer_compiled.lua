@@ -234,10 +234,20 @@ _G.packer_plugins = {
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/tailwind-highlight.nvim",
     url = "https://github.com/princejoogie/tailwind-highlight.nvim"
   },
+  ["telescope-cheat.nvim"] = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/telescope-cheat.nvim",
+    url = "https://github.com/yorik1984/telescope-cheat.nvim"
+  },
   ["telescope-smart-history.nvim"] = {
     loaded = true,
     path = "/home/yurii/.local/share/nvim/site/pack/packer/start/telescope-smart-history.nvim",
     url = "https://github.com/nvim-telescope/telescope-smart-history.nvim"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/home/yurii/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

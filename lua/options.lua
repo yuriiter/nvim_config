@@ -57,6 +57,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.incsearch = true
+-- opt. = true
 
 
 if vim.fn.has("nvim-0.9.0") == 1 then

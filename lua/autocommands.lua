@@ -177,7 +177,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Selects a code action available at the current cursor position
     bufmap('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-    bufmap('x', '<leader>la', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
 
     -- Show diagnostics in a floating window
     bufmap('n', '<leader>ld', '<cmd>lua vim.diagnostic.open_float()<cr>')

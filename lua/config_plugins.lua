@@ -1,14 +1,25 @@
 local utils = require("utils")
 
 if utils.isModuleAvailable("telescope") then
+    local actions = require('telescope.actions')
     -- require('telescope').load_extension('smart_history')
+    require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("cheat")
     require('telescope').setup({
         defaults = {
             layout_config = {
-                vertical = { width = 0.5 }
+                horizontal = { width = 0.8 }
             },
             history = {
                 limit = 100,
+            },
+            mappings = {
+                i = {
+                    ['<C-p>'] = actions.cycle_history_prev,
+                    ['<C-n>'] = actions.cycle_history_next,
+                    ['<C-j>'] = actions.move_selection_next,
+                    ['<C-k>'] = actions.move_selection_previous
+                }
             }
 
         },

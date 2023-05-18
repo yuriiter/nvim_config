@@ -40,10 +40,18 @@ return packer.startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
         -- setup
     }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     use {
- 'nvim-telescope/telescope-smart-history.nvim',
+        'nvim-telescope/telescope-smart-history.nvim',
         requires = { {'kkharji/sqlite.lua'} }
         -- setup
+    }
+    use {
+        "yorik1984/telescope-cheat.nvim",
+        requires = {
+            "kkharji/sqlite.lua",
+            "nvim-telescope/telescope.nvim"
+        }
     }
     use {
         'nvim-treesitter/nvim-treesitter',
